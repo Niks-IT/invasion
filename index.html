@@ -665,7 +665,32 @@
             margin-bottom: 20px;
             opacity: 0.9;
         }
+		.member-social {
+			margin-top: 20px;
+			text-align: center;
+		}
 
+		.tg-link {
+			display: inline-block;
+			background: linear-gradient(135deg, #0088cc, #34b7f1);
+			color: white !important;
+			padding: 8px 20px;
+			border-radius: 50px;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			font-weight: 500;
+			box-shadow: 0 4px 15px rgba(52, 183, 241, 0.4);
+		}
+
+		.tg-link:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(52, 183, 241, 0.6);
+		}
+
+		.tg-link i {
+			margin-right: 8px;
+			font-size: 1.2em;
+		}
         /* Отзывы */
         .reviews {
             padding: 100px 5%;
@@ -1201,15 +1226,25 @@
                     <h3 class="member-name">Niks</h3>
                     <div class="member-role">Разработчик</div>
                     <p class="member-bio">Создатель игровой механики и всей технической части проекта. Буквально только заканчивает первый курс университета. Ещё не нашёл себя, поэтому пробует создавать всё что может. 3D графика его. Этот сайт его первый.</p>
+					<div class="member-social">
+						<a href="https://t.me/Niksandmylife" target="_blank" class="tg-link">
+							<i class="fab fa-telegram"></i> Студенческая жизнь
+						</a>
+					</div>
                 </div>
                 
                 <div class="team-member">
                     <div class="member-photo">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="member-name">Miicha</h3>
+                    <h3 class="member-name">Miich</h3>
                     <div class="member-role">Художница</div>
                     <p class="member-bio">Талантливая художница, создательница визуального стиля игры. Отвечает за создание персонажей и костюмов. Вся 2D графика - её. Заканчивает первый курс колледжа.</p>
+					<div class="member-social">
+						<a href="https://t.me/Miich_a" target="_blank" class="tg-link">
+							<i class="fab fa-telegram"></i> Комната бездельника🎧
+						</a>
+					</div>
                 </div>
             </div>
         </section>
@@ -1355,12 +1390,12 @@
                 niksRole: "Разработчик",
                 niksBio: "Создатель игровой механики и всей технической части проекта. Буквально только заканчивает первый курс университета. Ещё не нашёл себя, поэтому пробует создавать всё что может. 3D графика его. Этот сайт его первый.",
                 miichaRole: "Художница",
-                miichaBio: "Талантливая художница, создательница визуального стиля игры. Отвечает за создание персонажей и костюмов. Вся 2D графика - её. Заканчивает первый курс колледжа.",
+                miichaBio: "Талантливая художница, создательница визуального стиля игры. Отвечает за создание персонажей и костюмов. Вся 2D графика - её. Заканчивает первый курс колледжа. «Рисую. Грызу. Творю. Не мешайте» ",
                 reviewsTitle: "Отзывы игроков",
                 review1: "С нетерпением делаю эту игру и хочу дать её попробовать вам, надеюсь успеть выпустить бета версию.",
                 reviewAuthor1: "Никс, Создатель",
-                review2: "Инопланетяшка топ! (пока не дала комментарий)",
-                reviewAuthor2: "Миича, художница",
+                review2: "Мои инопланетяне? Милота! Мои следы зубов на стилусе? Брендинг. Заказы — в директ, жалобы — в плавник🦈",
+                reviewAuthor2: "Миич, художница",
                 review3: "Оказывается тут не криптомонета разрабатывалась 👀",
                 reviewAuthor3: "Михаил, проходил мимо",
                 reviewComing: "Официальные отзывы появятся после релиза",
@@ -1416,7 +1451,7 @@
                 review1: "I'm eagerly creating this game and want to let you try it, I hope to release a beta version soon.",
                 reviewAuthor1: "Niks, Creator",
                 review2: "The alien design is awesome! (no comment yet)",
-                reviewAuthor2: "Miicha, Artist",
+                reviewAuthor2: "Miich, Artist",
                 review3: "Turns out it's not a cryptocurrency being developed here 👀",
                 reviewAuthor3: "Mikhail, Just Passing By",
                 reviewComing: "Official reviews will appear after release",
@@ -1549,7 +1584,7 @@
             document.querySelectorAll('.member-name')[0].textContent = "Niks";
             document.querySelectorAll('.member-role')[0].textContent = t.niksRole;
             document.querySelectorAll('.member-bio')[0].textContent = t.niksBio;
-            document.querySelectorAll('.member-name')[1].textContent = "Miicha";
+            document.querySelectorAll('.member-name')[1].textContent = "Miich";
             document.querySelectorAll('.member-role')[1].textContent = t.miichaRole;
             document.querySelectorAll('.member-bio')[1].textContent = t.miichaBio;
             
