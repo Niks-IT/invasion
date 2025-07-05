@@ -128,17 +128,21 @@
             transition: 0.3s;
             position: relative;
             font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 20px;
         }
 
         nav a:hover {
             color: var(--neon);
+            background: rgba(0, 243, 255, 0.1);
         }
 
         nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 2px;
             background: var(--neon);
@@ -146,7 +150,7 @@
         }
 
         nav a:hover::after {
-            width: 100%;
+            width: 80%;
         }
 
         /* Меню выбора языка */
@@ -817,7 +821,7 @@
             z-index: 2;
         }
 
-        .download-hidden {
+        .download-buttons {
             display: none;
             animation: fadeIn 1s forwards;
         }
@@ -868,6 +872,25 @@
             margin-bottom: 10px;
             color: white;
             font-family: 'Orbitron', sans-serif;
+        }
+
+        .platform-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, var(--purple), var(--pink));
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(161, 0, 255, 0.4);
+        }
+
+        .platform-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(161, 0, 255, 0.6);
         }
 
         /* Кнопка наверх */
@@ -985,6 +1008,10 @@
         .x-social {
             font-weight: bold;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
         
         /* Анимации */
@@ -1022,13 +1049,19 @@
             100% { opacity: 0; }
         }
         
-        @keyframes reviewSwitch {
-            0%, 100% { opacity: 1; transform: translateY(0); }
-            50% { opacity: 0; transform: translateY(10px); }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
         }
-        
-        .review-switch {
-            animation: reviewSwitch 0.5s ease;
+
+        .download-buttons.visible {
+            display: block;
+            animation: pulseGlow 2s infinite;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--neon);
         }
 
         /* Адаптивность */
@@ -1070,6 +1103,11 @@
             header {
                 padding: 15px 5%;
                 flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
             }
             
             .timer-unit {
@@ -1130,11 +1168,12 @@
             }
 
             nav ul {
-                gap: 1rem;
+                gap: 0.5rem;
             }
 
             nav a {
-                font-size: 0.9rem;
+                padding: 5px 10px;
+                font-size: 0.8rem;
             }
 
             .platform {
@@ -1174,6 +1213,7 @@
                     <li><a href="#team">Команда</a></li>
                     <li><a href="#reviews">Отзывы</a></li>
                     <li><a href="#download">Скачать</a></li>
+                    <li><a href="#social">Соцсети</a></li> <!-- Новая ссылка -->
                 </ul>
             </nav>
         </div>
@@ -1371,32 +1411,32 @@
                 <p id="download-text">Забронируйте место в первом ряду инопланетного вторжения! Игра выйдет 15 июля 2025 года.</p>
                 
                 <!-- Скрытый блок с кнопками загрузки -->
-                <div class="download-hidden" id="download-buttons">
+                <div class="download-buttons" id="download-buttons">
                     <div class="platforms">
                         <div class="platform">
                             <i class="fas fa-download"></i>
                             <h3>APK файл</h3>
                             <p>Прямая загрузка</p>
-                            <a href="#" class="btn">Скачать</a>
+                            <a href="#" class="platform-btn">Скачать</a>
                         </div>
                         <div class="platform">
                             <i class="fab fa-itch-io"></i>
                             <h3>itch.io</h3>
                             <p>Мобильная версия</p>
-                            <a href="#" class="btn">Скачать</a>
+                            <a href="#" class="platform-btn">Скачать</a>
                         </div>
                         <div class="platform">
                             <i class="fab fa-android"></i>
                             <h3>Play Market</h3>
                             <p>На рассмотрении</p>
-                            <a href="#" class="btn">Оповестить</a>
+                            <a href="#" class="platform-btn">Оповестить</a>
                         </div>
                     </div>
                 </div>
                 
                 <div style="margin-top: 40px;">
                     <h3 id="stay-tuned">Следите за обновлениями</h3>
-                    <a href="#support" class="btn" style="margin-top: 20px;" id="get-notification">Получить уведомление</a>
+                    <a href="#social" class="btn" style="margin-top: 20px;" id="get-notification">Получить уведомление</a>
                 </div>
             </div>
         </section>
@@ -1408,7 +1448,7 @@
             <div class="footer-logo">Invasion</div>
             <p>Захватывающая инди-игра про инопланетное вторжение на Землю</p>
             
-            <div class="social-links">
+            <div id="social" class="social-links">
                 <a href="#" id="social-1" data-lang="ru" data-url="https://vk.com/invasion_game" data-icon="fab fa-vk">
                     <i class="fab fa-vk"></i>
                 </a>
@@ -1426,8 +1466,12 @@
                     <i class="fas fa-donate"></i>
                 </a>
                 <!-- Patreon для английского языка -->
-                <a href="#" id="social-patreon" data-lang="en" data-url="https://patreon.com/invasion" data-icon="fab fa-patreon" style="display: none;">
+                <a href="#" id="social-patreon" data-lang="en" data-url="https://patreon.com/invasion" data-icon="fab fa-patreon">
                     <i class="fab fa-patreon"></i>
+                </a>
+                <!-- X для английского языка -->
+                <a href="#" id="social-x" data-lang="en" data-url="https://twitter.com/invasion_game" data-icon="fab fa-x-twitter">
+                    <i class="fab fa-x-twitter"></i>
                 </a>
             </div>
             
@@ -1460,6 +1504,7 @@
                 reviews: "Отзывы",
                 download: "Скачать",
                 support: "Поддержка",
+                social: "Соцсети",
                 heroTitle: "INVASION",
                 heroText: "Стань предводителем инопланетного вторжения на Землю! Управляйте НЛО, поглощайте всё на своём пути и съешьте планету в этой захватывающей игре.",
                 indieTag: "ИНДИ-ИГРА ОТ ДВУХ ЭНТУЗИАСТОВ ДЛЯ ВАС",
@@ -1518,6 +1563,7 @@
                 reviews: "Reviews",
                 download: "Download",
                 support: "Support",
+                social: "Social",
                 heroTitle: "INVASION",
                 heroText: "Become the leader of an alien invasion of Earth! Control UFOs, absorb everything in your path, and consume the planet in this thrilling game.",
                 indieTag: "INDIE GAME BY TWO ENTHUSIASTS FOR YOU",
@@ -1606,6 +1652,7 @@
             if (diff <= 0) {
                 // Время вышло - показываем кнопки загрузки
                 document.getElementById('download-buttons').style.display = 'block';
+                document.getElementById('download-buttons').classList.add('visible');
                 document.querySelector('.countdown').style.display = 'none';
                 return;
             }
@@ -1652,6 +1699,7 @@
             document.querySelector('a[href="#team"]').textContent = t.team;
             document.querySelector('a[href="#reviews"]').textContent = t.reviews;
             document.querySelector('a[href="#download"]').textContent = t.download;
+            document.querySelector('a[href="#social"]').textContent = t.social;
             document.querySelector('.hero-title').textContent = t.heroTitle;
             document.querySelector('.hero p').textContent = t.heroText;
             document.querySelector('.indie-tag').textContent = t.indieTag;
@@ -1719,9 +1767,9 @@
             document.getElementById('download-text').textContent = t.downloadText;
             
             // Скачивание
-            document.querySelectorAll('.platform .btn')[0].textContent = t.apkBtn;
-            document.querySelectorAll('.platform .btn')[1].textContent = t.itchBtn;
-            document.querySelectorAll('.platform .btn')[2].textContent = t.playBtn;
+            document.querySelectorAll('.platform-btn')[0].textContent = t.apkBtn;
+            document.querySelectorAll('.platform-btn')[1].textContent = t.itchBtn;
+            document.querySelectorAll('.platform-btn')[2].textContent = t.playBtn;
             
             // Подвал
             document.querySelector('footer p').textContent = t.footerText;
@@ -1756,18 +1804,15 @@
             const socialLinks = document.querySelectorAll('.social-links a');
             
             socialLinks.forEach(link => {
-                const iconClass = link.getAttribute('data-icon');
                 const langAttr = link.getAttribute('data-lang');
                 
                 if (langAttr === lang) {
                     link.style.display = 'inline-flex';
                     link.href = link.getAttribute('data-url');
                     
-                    // Обработка X (бывшего Twitter)
-                    if (link.id === 'social-1' && lang === 'en') {
+                    // Для X используем текстовое отображение
+                    if (link.id === 'social-x' && lang === 'en') {
                         link.innerHTML = '<span class="x-social">X</span>';
-                    } else {
-                        link.innerHTML = `<i class="${iconClass}"></i>`;
                     }
                 } else {
                     link.style.display = 'none';
@@ -1880,4 +1925,4 @@
         });
     </script>
 </body>
-			    </html>
+</html>
