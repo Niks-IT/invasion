@@ -765,16 +765,9 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: linear-gradient(45deg, var(--purple), var(--neon));
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto 15px;
-        }
-        
-        .meme-photo i {
-            font-size: 2rem;
-            color: white;
+            object-fit: cover;
+            border: 3px solid rgba(0, 243, 255, 0.3);
         }
         
         /* Контейнер для переключения отзывов */
@@ -1302,16 +1295,16 @@
             <h2 class="section-title" id="screenshots-title">Игровые сцены</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="https://i.imgur.com/5Xg8z9l.png" alt="Захват города">
+                    <img src="images/city_capture.jpg" alt="Захват города">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.imgur.com/5Xg8z9l.png" alt="Битва с армией">
+                    <img src="images/army_battle.jpg" alt="Битва с армией">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.imgur.com/5Xg8z9l.png" alt="Флагман вторжения">
+                    <img src="images/flagship.jpg" alt="Флагман вторжения">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.imgur.com/5Xg8z9l.png" alt="Технологии">
+                    <img src="images/alien_tech.jpg" alt="Технологии пришельцев">
                 </div>
             </div>
         </section>
@@ -1388,11 +1381,10 @@
                             <div class="review-coming">Официальные отзывы появятся после релиза</div>
                         </div>
                         <div class="review-content" id="review-content-2">
-                            <div class="meme-photo">
-                                <i class="fas fa-mountain"></i>
-                            </div>
+                            <img src="images/meme_photo.jpg" alt="Meme" class="meme-photo">
                             <p class="review-text">Умный в гору не пойдёт, умный человек скачать обои</p>
-                            <div class="review-author">Младший брат создателя</div>
+                            <div class="review-author">Брат создателя</div>
+                            <div class="review-coming">Это шутка, мем</div>
                         </div>
                     </div>
                 </div>
@@ -1449,29 +1441,31 @@
             <p>Захватывающая инди-игра про инопланетное вторжение на Землю</p>
             
             <div id="social" class="social-links">
-                <a href="#" id="social-1" data-lang="ru" data-url="https://vk.com/invasion_game" data-icon="fab fa-vk">
+                <!-- Для русского языка -->
+                <a href="https://vk.com/invasion_game" target="_blank" id="social-vk" data-lang="ru">
                     <i class="fab fa-vk"></i>
                 </a>
-                <a href="#" id="social-2" data-lang="ru" data-url="https://t.me/invasion_game" data-icon="fab fa-telegram">
+                <!-- Для английского языка -->
+                <a href="https://twitter.com/invasion_game" target="_blank" id="social-x" data-lang="en">
+                    <span class="x-social">X</span>
+                </a>
+                <!-- Общие -->
+                <a href="https://t.me/invasion_game" target="_blank" id="social-tg" data-lang="all">
                     <i class="fab fa-telegram"></i>
                 </a>
-                <a href="#" id="social-3" data-lang="ru" data-url="https://www.youtube.com/channel/invasion_game" data-icon="fab fa-youtube">
+                <a href="https://www.youtube.com/channel/invasion_game" target="_blank" id="social-yt" data-lang="all">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="#" id="social-4" data-lang="ru" data-url="https://tiktok.com/@invasion_game" data-icon="fab fa-tiktok">
+                <a href="https://tiktok.com/@invasion_game" target="_blank" id="social-tt" data-lang="all">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <!-- Boosty для русского языка -->
-                <a href="#" id="social-boosty" data-lang="ru" data-url="https://boosty.to/invasion_game" data-icon="fas fa-donate">
+                <!-- Для русского языка -->
+                <a href="https://boosty.to/invasion_game" target="_blank" id="social-boosty" data-lang="ru">
                     <i class="fas fa-donate"></i>
                 </a>
-                <!-- Patreon для английского языка -->
-                <a href="#" id="social-patreon" data-lang="en" data-url="https://patreon.com/invasion" data-icon="fab fa-patreon">
+                <!-- Для английского языка -->
+                <a href="https://patreon.com/invasion" target="_blank" id="social-patreon" data-lang="en">
                     <i class="fab fa-patreon"></i>
-                </a>
-                <!-- X для английского языка -->
-                <a href="#" id="social-x" data-lang="en" data-url="https://twitter.com/invasion_game" data-icon="fab fa-x-twitter">
-                    <i class="fab fa-x-twitter"></i>
                 </a>
             </div>
             
@@ -1543,7 +1537,7 @@
                 review3: "Оказывается тут не криптомонета разрабатывалась 👀",
                 reviewAuthor3: "Михаил, проходил мимо",
                 reviewMeme: "Умный в гору не пойдёт, умный человек скачать обои",
-                reviewAuthorMeme: "Младший брат создателя",
+                reviewAuthorMeme: "Брат создателя",
                 reviewComing: "Официальные отзывы появятся после релиза",
                 shareFeedback: "Поделитесь своим мнением после релиза!",
                 feedbackWelcome: "Мы будем рады вашим отзывам и предложениям",
@@ -1602,7 +1596,7 @@
                 review3: "Turns out it's not a cryptocurrency being developed here 👀",
                 reviewAuthor3: "Mikhail, Just Passing By",
                 reviewMeme: "Smart people don't climb mountains, smart people download wallpapers",
-                reviewAuthorMeme: "Creator's younger brother",
+                reviewAuthorMeme: "Creator's brother",
                 reviewComing: "Official reviews will appear after release",
                 shareFeedback: "Share your thoughts after release!",
                 feedbackWelcome: "We'll be glad to hear your feedback and suggestions",
@@ -1806,16 +1800,17 @@
             socialLinks.forEach(link => {
                 const langAttr = link.getAttribute('data-lang');
                 
-                if (langAttr === lang) {
+                // Скрываем все ссылки сначала
+                link.style.display = 'none';
+                
+                // Показываем ссылки для текущего языка или общие
+                if (langAttr === lang || langAttr === 'all') {
                     link.style.display = 'inline-flex';
-                    link.href = link.getAttribute('data-url');
                     
                     // Для X используем текстовое отображение
                     if (link.id === 'social-x' && lang === 'en') {
                         link.innerHTML = '<span class="x-social">X</span>';
                     }
-                } else {
-                    link.style.display = 'none';
                 }
             });
         }
